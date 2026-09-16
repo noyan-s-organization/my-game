@@ -1,4 +1,4 @@
-//versions 1.1
+//versions 1.2
 fun main() {
     var hpPlayer = 100
     var hpDragon = 100
@@ -8,20 +8,21 @@ fun main() {
     main@ while (true) {
         val randomPotion = (1..100).random()
         if (randomPotion == 50) {
-            if (hpDragon == 100) {
-
+            if (hpPlayer == 100) {
+                println("вы нашли зелье, но вы здоровы")
+            } else if (hpPlayer <= 99) {
+                hpPlayer = 100
+                println("вы нашли зелье, ваше здоровье: $hpPlayer")
             }
-            hpPlayer = 100
-            println("вы нашли зелье, ваше здоровье: $hpPlayer")
-        } else if (mercy >= 7) {
-             println("вы добрый, дракон вас отпустил, нажмите enter чтобы выйти")
+        } else if (mercy >= 5) {
+            println("вы добрый, дракон вас отпустил, нажмите enter чтобы выйти")
             readln()
             break@main
         }
-        val DragonStrike = (1..mercy).random().toInt()
-        when (DragonStrike) {
+        val dragonStrike = (1..mercy).random()
+        when (dragonStrike) {
             3 -> {
-                hpPlayer = hpPlayer - damageDrakon
+                hpPlayer -= damageDrakon
                 if (hpPlayer <= 0) hpPlayer = 0
                 println("вас ударил дракон. ваше хп: $hpPlayer")
                 if (hpPlayer < 1) {
@@ -35,7 +36,7 @@ fun main() {
         val choice = readln()
         when (choice) {
             "д" -> {
-                hpDragon = hpDragon - damagePlayer
+                hpDragon -= damagePlayer
                 if (hpDragon <= 0) hpDragon = 0
                 println("вы ударили дракона. хп дракона: $hpDragon")
                 if (hpDragon <= 0) {
@@ -44,10 +45,12 @@ fun main() {
                     break@main
                 }
             }
-            "н" ->{
+
+            "н" -> {
                 println("вы не ударили дракона")
-                mercy = mercy + 1
+                mercy += 1
             }
+
             else -> println("ошибка")
         }
     }
