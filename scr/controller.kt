@@ -16,7 +16,7 @@ fun controller() {
         if (dragonStrike == 1) {
             val exit101 = dragonStrike(dragonStrike, hpPlayer, damageDragon)
             if (exit101 == 101) {
-                exit = false
+                break
             } else {
                 hpPlayer = exit101
             }
