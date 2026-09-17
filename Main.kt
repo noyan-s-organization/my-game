@@ -1,48 +1,47 @@
-//versions 1.3
+//versions 1.4
 fun main() {
     var hpPlayer = 100
     var hpDragon = 100
-    val damageDrakon = 32
+    val damageDragon = 32
     val damagePlayer = 15
     var mercy = 3
-    main@ while (true) {
-        if (mercy >= 5) {
+    while (true) {
+        if (mercy >= 7) {
             println("вы добрый, дракон вас отпустил, нажмите enter чтобы выйти")
             readln()
-            break@main
+            break
         }
-        val randomPotion = (1..100).random()
+        val randomPotion = (1..80).random()
         if (randomPotion == 50) {
             if (hpPlayer == 100) {
                 println("вы нашли зелье, но вы здоровы")
             } else {
-                hpPlayer = 100
+                hpPlayer = (hpPlayer + 30).coerceAtMost(100)
                 println("вы нашли зелье, ваше здоровье: $hpPlayer")
             }
         }
-        val dragonStrike = (1..mercy).random()
-        when (dragonStrike) {
-            3 -> {
-                hpPlayer = (hpPlayer - damageDrakon).coerceAtLeast(0)
+        val strikeRandom = mercy
+        val dragonStrike = (1..strikeRandom).random()
+        if (dragonStrike == 1) {
+                hpPlayer = (hpPlayer - damageDragon).coerceAtLeast(0)
                 println("вас ударил дракон. ваше хп: $hpPlayer")
-                if (hpPlayer < 1) {
+                if (hpPlayer == 0) {
                     println("вы проиграли, нажмите enter чтобы выйти")
                     readln()
-                    break@main
+                    break
                 }
             }
-        }
         println("ударить дракона?(д/н)")
-        val choice = readln()
+        val choice = readln().trim().lowercase()
         when (choice) {
             "д" -> {
                 hpDragon = (hpDragon - damagePlayer).coerceAtLeast(0)
                 println("вы ударили дракона. хп дракона: $hpDragon")
                 mercy = 3
-                if (hpDragon <= 0) {
+                if (hpDragon == 0) {
                     println("вы победили, нажмите enter чтобы выйти")
                     readln()
-                    break@main
+                    break
                 }
             }
             "н" -> {
