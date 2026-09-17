@@ -9,7 +9,7 @@ fun Choice(choice: String, hpDragon: Int, damagePlayer: Int, mercy: Int): Pair<I
         }
 
         "н" -> {
-            HpDragon = (hpDragon - damagePlayer).coerceAtLeast(0)
+            HpDragon = (hpDragon).coerceAtLeast(0)
             println("вы не ударили дракона")
             Mercy += 1
         }
