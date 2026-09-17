@@ -14,7 +14,11 @@ fun Choice(choice: String, hpDragon: Int, damagePlayer: Int, mercy: Int): Pair<I
             Mercy += 1
         }
 
-        else -> println("ошибка")
+        else -> {
+            println("ошибка")
+            HpDragon = (hpDragon).coerceAtLeast(0)
+        }
+
     }
     return Pair(HpDragon, Mercy)
 }
