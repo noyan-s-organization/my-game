@@ -1,8 +1,8 @@
 main.kt
 |
-|-contoller.kt
+|-controller.kt
   |
   |-mercy.kt
   |-randomPotion.kt
-  |-drakonStrike.kt
+  |-dragonStrike.kt
   |-choice.kt
