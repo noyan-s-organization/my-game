@@ -12,9 +12,9 @@ fun controller() {
         if (randomPotion == 1) {
             hpPlayer = RandomPotion(hpPlayer)
         }
-        val dragonStrike = (1..mercy).random()
-        if (dragonStrike == 1) {
-            hpPlayer = dragonStrike(dragonStrike, hpPlayer, damageDragon)
+        val DragonStrike = (1..mercy).random()
+        if (DragonStrike == 1) {
+            hpPlayer = dragonStrike(DragonStrike, hpPlayer, damageDragon)
             if (hpPlayer == 0) {
                 println("вы проиграли, нажмите enter чтобы выйти")
                 readln()
