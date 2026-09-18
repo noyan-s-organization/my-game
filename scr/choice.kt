@@ -5,7 +5,7 @@ fun Choice(choice: String, hpDragon: Int, damagePlayer: Int, mercy: Int): Pair<I
         "д" -> {
             HpDragon = (hpDragon - damagePlayer).coerceAtLeast(0)
             println("вы ударили дракона. хп дракона: $HpDragon")
-            Mercy = 3
+            Mercy = 4
         }
 
         "н" -> {
