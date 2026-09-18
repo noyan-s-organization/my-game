@@ -1,8 +1,8 @@
-fun Mercy(mercy: Int): Boolean {
+fun Mercy(mercy: Int): Int {
     if (mercy >= 7) {
         println("вы добрый, дракон вас отпустил, нажмите enter чтобы выйти")
         readln()
-        return false
+        return 101
     }
-    return true
+    return 0
 }
